@@ -5,6 +5,7 @@ const cors = require('cors');
 
 require('dotenv').config();
 const authRoutes = require('./routes/authRoutes'); // Import the router
+const dishRoutes = require("./routes/dishRoutes");
 
 // Middleware
 const PORT = 3000;
@@ -31,6 +32,8 @@ app.get('/', async (req, res) => {
 
 // Attach the authentication router
 app.use('/api/auth', authRoutes);
+app.use('/api/dishes', dishRoutes);
+
 
 // Server running and testing
 app.listen(PORT, (err) => {

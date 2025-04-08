@@ -1,15 +1,13 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import nightlifeContext from "../../context/GlobalContext/nightlifeContext";
 import Navbar from "../Navbar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
-
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Footer";
+
 const NightlifeDetail = () => {
   const context = useContext(nightlifeContext);
   const { nightlifes } = context;
@@ -17,7 +15,7 @@ const NightlifeDetail = () => {
   const { id } = useParams();
 
   // Find the item with the matching ID
-  const item = nightlifes.find((i) => i.id === parseInt(id));
+  const item = nightlifes?.find((i) => i.id === parseInt(id));
 
   // Handle case where item is not found
   if (!item) {
@@ -26,7 +24,7 @@ const NightlifeDetail = () => {
 
   const navigate = useNavigate();
 
-  //   Bookmark onClick Implementation
+  // Bookmark onClick Implementation
   const [isBookmark, setIsBookmark] = useState(false);
 
   const toggleBookmark = () => {
@@ -92,59 +90,27 @@ const NightlifeDetail = () => {
           <p>
             Our chefs, masters of their craft, draw inspiration from both
             tradition and innovation, curating a menu that delights and
-            surprises at every turn. Each dish is a work of art, a symphony of
-            ingredients thoughtfully combined to create a harmonious blend of
-            flavors and textures.
-          </p>
-          <p>
-            Whether you're craving the comfort of familiar classics or eager to
-            explore bold new culinary frontiers, our menu offers something to
-            satisfy every palate. From succulent meats and fresh seafood to
-            vibrant vegetarian fare, there's a dish here waiting to captivate
-            your taste buds.
-          </p>
-          <p>
-            But our commitment to excellence extends beyond the plate. At our
-            restaurant, hospitality is not just a service—it's a philosophy. Our
-            dedicated staff is here to ensure your every need is met, from
-            recommending the perfect wine pairing to accommodating special
-            dietary requests.
-          </p>
-          <p>
-            As you dine with us, take a moment to savor the atmosphere, where
-            laughter mingles with the clink of glasses and the hum of
-            conversation. Whether you're celebrating a special occasion or
-            simply indulging in a well-deserved treat, our restaurant provides
-            the perfect backdrop for cherished moments and lasting memories.
-          </p>
-          <p>
-            So come, join us here, where culinary artistry meets heartfelt
-            hospitality. We invite you to relax, unwind, and savor the magic of
-            dining done right.
+            surprises at every turn.
           </p>
         </div>
 
         <div className="line-1 border-b border-gray-400 mx-4 mt-6"></div>
         {/* More Info */}
-        <div className="m-6 space-y-2 ">
+        <div className="m-6 space-y-2">
           <p className="text-xl font-semibold">More Info</p>
           <ul className="space-y-2">
             <li>
               <FontAwesomeIcon icon={faCircleCheck} /> Breakfast
             </li>
-
             <li>
               <FontAwesomeIcon icon={faCircleCheck} /> Home Delivery
             </li>
-
             <li>
               <FontAwesomeIcon icon={faCircleCheck} /> Takeaway Available
             </li>
-
             <li>
               <FontAwesomeIcon icon={faCircleCheck} /> Desserts and Bakes
             </li>
-
             <li>
               <FontAwesomeIcon icon={faCircleCheck} /> Indoor Seating
             </li>

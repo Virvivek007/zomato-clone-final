@@ -14,7 +14,7 @@ hover:border-2 hover:border-solid hover:border-gray-200 text-black"
             <div className="relative">
               {/* Card Image */}
               <img
-                src={image}
+                src={"https://picsum.photos/200/300/?blur"}
                 alt={title}
                 className="h-56 w-80 object-cover rounded-2xl"
               />
